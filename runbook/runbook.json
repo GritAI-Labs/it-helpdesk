@@ -1,0 +1,27 @@
+{
+  "software_eol": {
+    "topics": ["eol", "end of life", "upgrade", "version", "supported", "outdated"],
+    "text": "Software support policy: any OS or runtime past its vendor end-of-life (EOL) date must be scheduled for upgrade within 30 days, because EOL software no longer receives security patches. Software within 90 days of its EOL date is flagged for proactive planning. Supported versions need no action. Always cite the vendor EOL date from the authoritative source; never guess it.",
+    "action": "If EOL has passed -> open a P2 upgrade task (30-day SLA). If EOL is within 90 days -> notify owner to plan. If supported -> inform the user, no action."
+  },
+  "vulnerability": {
+    "topics": ["cve", "vulnerability", "patch", "exploit", "security advisory"],
+    "text": "Vulnerability patching policy, driven by CVSS base score from an authoritative source (NVD/CIRCL): CRITICAL (9.0-10.0) patch within 24 hours; HIGH (7.0-8.9) within 7 days; MEDIUM (4.0-6.9) within 30 days; LOW (0.1-3.9) next maintenance window. Known-exploited vulnerabilities are escalated one level. Never state a severity you did not look up.",
+    "action": "Map the looked-up CVSS score to the SLA tier and open a patch task at that priority. Escalate a tier if the CVE is known-exploited."
+  },
+  "service_status": {
+    "topics": ["down", "outage", "status", "not working", "unavailable", "degraded"],
+    "text": "Service outage policy: confirm status from the vendor's official status page before responding; never assume. If the vendor reports an incident, it is an external outage -> acknowledge, link the vendor status page, and set expectations (no local fix). If the vendor reports all-operational, treat as a local/account issue and run L1 triage. Do not promise a restore time you do not have.",
+    "action": "If vendor reports an incident -> post an external-outage advisory with the status link. If operational -> proceed to local L1 troubleshooting."
+  },
+  "password_reset": {
+    "topics": ["password", "reset", "locked out", "forgot password", "can't log in"],
+    "text": "Password policy: password resets are self-service via the SSO portal and require verified MFA. The helpdesk never sends or sets a password directly and never bypasses MFA. Repeated lockouts (3+ in 24h) are escalated to security as a possible compromise.",
+    "action": "Send the self-service SSO reset instructions; confirm MFA is enrolled. If 3+ lockouts in 24h -> escalate to security. Never set or email a password."
+  },
+  "access_request": {
+    "topics": ["access", "permission", "add me", "grant", "role", "shared drive", "group"],
+    "text": "Access-provisioning policy: all access grants require manager approval and follow least-privilege. The helpdesk never grants elevated or admin access on request; it routes to the approval workflow. Standard-group access is provisioned after the manager approves in the access system.",
+    "action": "Route to the manager-approval workflow; do not grant directly. For admin/elevated access, require a documented business justification plus security sign-off."
+  }
+}

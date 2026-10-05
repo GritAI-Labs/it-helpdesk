@@ -1,0 +1,64 @@
+{
+  "generated_at": "2026-10-04 22:34:38",
+  "agent": "it-helpdesk",
+  "models": {
+    "drafter": "gemma4:12b-it-qat",
+    "critic": "qwen3:30b",
+    "judge": "qwen3:30b"
+  },
+  "data_sources": [
+    "endoflife.date",
+    "cve.circl.lu",
+    "statuspage.io",
+    "runbook/runbook.json"
+  ],
+  "critic": {
+    "tp": 7,
+    "fp": 0,
+    "fn": 1,
+    "tn": 6,
+    "total": 14,
+    "precision": 1.0,
+    "recall": 0.875,
+    "accuracy": 0.9285714285714286,
+    "positive_class": "revise (a runbook violation to catch)"
+  },
+  "drafter": {
+    "total": 12,
+    "category_accuracy": 1.0,
+    "grounded_pct": 0.9166666666666666,
+    "on_runbook_pct": 0.75,
+    "addresses_pct": 0.9166666666666666,
+    "runbook_compliant_pct": 0.75,
+    "fully_compliant_pct": 0.75,
+    "fully_correct_pct": 0.6666666666666666,
+    "per_category": {
+      "software_eol": {
+        "n": 3,
+        "runbook_compliant": 1
+      },
+      "vulnerability": {
+        "n": 2,
+        "runbook_compliant": 2
+      },
+      "service_status": {
+        "n": 2,
+        "runbook_compliant": 2
+      },
+      "password_reset": {
+        "n": 2,
+        "runbook_compliant": 2
+      },
+      "access_request": {
+        "n": 2,
+        "runbook_compliant": 1
+      },
+      "other": {
+        "n": 1,
+        "runbook_compliant": 1
+      }
+    }
+  },
+  "elapsed_secs": 2620.2,
+  "n_cases": 26
+}
